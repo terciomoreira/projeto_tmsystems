@@ -1,142 +1,107 @@
 import streamlit as st
 import os
 
-# Configurações iniciais
-st.set_page_config(
-    page_title="TM Systems | Automação Inteligente",
-    page_icon="🤖",
-    layout="wide"
-)
+# Configurações de Página
+st.set_page_config(page_title="TM Systems | IA & Automação",
+                   page_icon="🤖", layout="wide")
 
-# --- ESTILO CSS PREMIUM ---
+# --- ESTILO CSS PREMIUM (PT-PT) ---
 st.markdown("""
     <style>
-    /* Gradiente suave no fundo */
-    .main { 
-        background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 300px); 
-    }
-    
-    /* Títulos com a cor do Logo */
-    h1, h2, h3 { 
-        color: #002347; 
-        text-align: center; 
-        font-family: 'Inter', sans-serif;
-    }
-    
-    /* Efeito de elevação nos Cards (Hover) */
+    .main { background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 300px); }
+    h1, h2 { color: #002347; text-align: center; }
     .card {
-        padding: 30px; 
-        border-radius: 15px; 
-        background-color: #ffffff;
-        border-left: 5px solid #00d4ff; 
-        box-shadow: 0px 4px 6px rgba(0,0,0,0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        height: 250px;
+        padding: 20px; border-radius: 15px; background-color: #ffffff;
+        border-left: 5px solid #00d4ff; box-shadow: 0px 4px 6px rgba(0,0,0,0.05);
         margin-bottom: 20px;
     }
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0px 12px 20px rgba(0,0,0,0.1);
-        border-left: 5px solid #002347;
-    }
-
-    /* Botão Profissional */
-    .stButton>button {
-        width: 100%;
-        background-color: #002347;
-        color: white;
-        border: none;
-        padding: 15px;
-        border-radius: 10px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    .stButton>button:hover {
-        background-color: #00d4ff;
-        color: #002347;
-    }
-
-    /* Ajuste do Formulário */
-    [data-testid="stForm"] {
-        border-radius: 20px;
-        background-color: #f8f9fa;
-        padding: 40px;
+    /* Estilo do Menu Lateral */
+    [data-testid="stSidebar"] { background-color: #002347; }
+    [data-testid="stSidebar"] * { color: white !important; }
+    /* Ajuste para Telemóveis */
+    @media (max-width: 600px) {
+        h1 { font-size: 1.8rem !important; }
+        .card { height: auto !important; }
     }
     </style>
     """, unsafe_allow_html=True)
 
-# --- CABEÇALHO ---
-if os.path.exists("logo.png"):
-    st.image("logo.png", width=180)
-else:
+# --- MENU LATERAL ---
+with st.sidebar:
+    if os.path.exists("logo.png"):
+        st.image("logo.png", width=150)
     st.title("TM Systems")
+    st.markdown("---")
+    menu = st.radio(
+        "Navegação",
+        ["Início", "Sobre a Empresa", "Soluções", "Contacto"]
+    )
+    st.markdown("---")
+    st.caption("Engenharia de Processos & IA")
 
-st.divider()
-
-# --- HERO SECTION ---
-st.markdown("<br>", unsafe_allow_html=True)
-col_centro = st.columns([0.1, 0.8, 0.1])
-
-with col_centro[1]:
-    st.markdown("<h1>Transforme o seu atendimento em uma máquina de vendas 24/7.</h1>",
+# --- PÁGINA: INÍCIO ---
+if menu == "Início":
+    st.markdown("<br><h1>Converta o seu atendimento numa máquina de vendas 24/7.</h1>",
                 unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; font-size: 1.3rem; color: #555;'>Engenharia de processos e IA para escalar o seu negócio em Portugal e na Europa.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 1.2rem; color: #555;'>Soluções de automação inteligente desenhadas para o mercado nacional e europeu.</p>", unsafe_allow_html=True)
 
-    c_btn1, c_btn2, c_btn3 = st.columns([1, 1.5, 1])
-    with c_btn2:
-        if st.button("Consultoria Gratuita"):
-            st.toast("Descubra como podemos ajudar abaixo!")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown('<div class="card"><h3>🤖 Agentes IA</h3><p>Atendimento autónomo que qualifica leads e agenda reuniões em tempo real.</p></div>', unsafe_allow_html=True)
+    with col2:
+        st.markdown('<div class="card"><h3>⚙️ Integrações</h3><p>Ligamos o seu CRM, WhatsApp e Email num fluxo de trabalho sem falhas.</p></div>', unsafe_allow_html=True)
+    with col3:
+        st.markdown('<div class="card"><h3>📊 Dashboards</h3><p>Monitorização de performance e KPIs estratégicos para decisões rápidas.</p></div>', unsafe_allow_html=True)
 
-st.markdown("<br><br>", unsafe_allow_html=True)
+# --- PÁGINA: SOBRE A EMPRESA ---
+elif menu == "Sobre a Empresa":
+    st.title("A Nossa Identidade")
+    col_a, col_b = st.columns([1, 1.5])
+    with col_b:
+        st.write("""
+        ### Quem é a TM Systems?
+        A **TM Systems** não é apenas uma consultora tecnológica; criada por Tércio de Souza Moreira, programador e empreendedor sabe bem como focar e atender as necessidades do cliente, somos arquitetos de eficiência operacional. Sediada em Portugal, a nossa empresa nasceu para colmatar a lacuna entre a tecnologia de ponta e a realidade prática dos negócios.
+        
+        Acreditamos que o capital humano deve ser investido em estratégia e criatividade, não em tarefas repetitivas. Por isso, desenvolvemos sistemas que "pensam" e executam processos de forma autónoma.
+        
+        **Os nossos pilares:**
+        *   **Engenharia de Processos:** Analisamos o seu fluxo atual antes de automatizar.
+        *   **IA Ética e Segura:** Implementamos soluções que protegem os dados dos seus clientes.
+        *   **Foco no ROI:** Cada automação é desenhada para reduzir custos e aumentar a faturação.
+        """)
+    st.success(
+        "Focamos em Albufeira, Porto e Lisboa, com capacidade de implementação em toda a União Europeia.")
 
-# --- ESPECIALIDADES ---
-st.markdown("## Nossas Soluções Inteligentes")
-c1, c2, c3 = st.columns(3)
+# --- PÁGINA: SOLUÇÕES ---
+elif menu == "Soluções":
+    st.title("Especialidades Tecnológicas")
+    tab1, tab2 = st.tabs(["Atendimento Inteligente", "Ecossistema de Gestão"])
+    with tab1:
+        st.write("""
+        *   **Chatbots de Nova Geração:** Agentes que utilizam Processamento de Linguagem Natural para interagir como humanos.
+        *   **Agendamento Automático:** Integração direta com Google Calendar e Outlook para clínicas e serviços.
+        """)
+    with tab2:
+        st.write("""
+        *   **Sincronização de CRM:** Mantenha o HubSpot, Salesforce ou Pipedrive sempre atualizados via WhatsApp.
+        *   **Automação de Faturação:** Emissão de documentos e lembretes de pagamento sem intervenção manual.
+        """)
 
-with c1:
-    st.markdown("""
-        <div class="card">
-            <h3 style='text-align: left;'>🤖 Agentes de IA</h3>
-            <p style='color: #666;'>Implementamos cérebros digitais que atendem, qualificam e vendem 24 horas por dia.</p>
-        </div>
-    """, unsafe_allow_html=True)
-with c2:
-    st.markdown("""
-        <div class="card">
-            <h3 style='text-align: left;'>⚙️ Automação Total</h3>
-            <p style='color: #666;'>Conectamos o seu WhatsApp, CRM e ferramentas de gestão num único fluxo eficiente.</p>
-        </div>
-    """, unsafe_allow_html=True)
-with c3:
-    st.markdown("""
-        <div class="card">
-            <h3 style='text-align: left;'>📊 Dashboards IA</h3>
-            <p style='color: #666;'>Decisões baseadas em dados reais com painéis inteligentes de performance.</p>
-        </div>
-    """, unsafe_allow_html=True)
-
-# --- FORMULÁRIO DE CONTACTO ---
-st.markdown("<br><br>", unsafe_allow_html=True)
-st.markdown("## Fale com um Especialista")
-col_form = st.columns([0.25, 0.5, 0.25])
-
-with col_form[1]:
-    with st.form("contacto_tm"):
-        nome = st.text_input("Empresa / Responsável")
-        email = st.text_input("E-mail Profissional")
-        whatsapp = st.text_input("WhatsApp com indicativo (ex: +351)")
-        mensagem = st.text_area("Qual o maior gargalo da sua operação hoje?")
-
-        submit = st.form_submit_button("SOLICITAR ANÁLISE DE PROCESSO")
-        if submit:
-            if nome and email:
+# --- PÁGINA: CONTACTO ---
+elif menu == "Contacto":
+    st.title("Inicie a sua Transformação")
+    col_f1, col_f2, col_f3 = st.columns([0.2, 0.6, 0.2])
+    with col_f2:
+        with st.form("contacto_pt"):
+            st.text_input("Nome do Responsável")
+            st.text_input("E-mail Profissional")
+            st.text_input("Telemóvel / WhatsApp")
+            st.text_area("Descreva o processo que pretende automatizar")
+            if st.form_submit_button("Solicitar Diagnóstico Gratuito"):
                 st.balloons()
                 st.success(
-                    f"Excelente, {nome}! Recebemos o seu pedido. Entraremos em contacto em breve.")
-            else:
-                st.warning("Por favor, preencha o Nome e E-mail.")
+                    "Recebemos o seu pedido. A nossa equipa entrará em contacto num prazo de 24 horas.")
 
 # --- RODAPÉ ---
 st.divider()
-st.caption("© 2026 TM Systems | Engenharia de Processos & IA | tmsystems.pt")
+st.caption("© 2026 TM Systems | tmsystems.pt | Portugal")
