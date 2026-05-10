@@ -41,7 +41,7 @@ with st.sidebar:
         ["Início", "Sobre a TMVio", "Soluções & Sistemas", "Contacto"]
     )
     st.markdown("---")
-    st.caption("Uma Solução TM Systems")
+    st.caption("Uma Solução Tercio Moreira Systems")
     st.caption("By Tércio Moreira")
 
 # --- 4. PÁGINA: INÍCIO ---
