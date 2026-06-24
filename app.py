@@ -3,8 +3,8 @@ import os
 
 # --- 1. CONFIGURAÇÕES DE PÁGINA ---
 st.set_page_config(
-    page_title="TMVio - Inteligência Financeira",
-    page_icon="💰",
+    page_title="Crearis | Core Tech & AI",
+    page_icon="🤖",
     layout="wide"
 )
 
@@ -12,14 +12,14 @@ st.set_page_config(
 st.markdown("""
     <style>
     .main { background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 300px); }
-    h1, h2 { color: #002347; text-align: center; }
+    h1, h2, h3 { color: #002347; text-align: center; }
     .card {
         padding: 20px; border-radius: 15px; background-color: #ffffff;
-        border-left: 5px solid #00d4ff; box-shadow: 0px 4px 6px rgba(0,0,0,0.05);
+        border-left: 5px solid #0052cc; box-shadow: 0px 4px 6px rgba(0,0,0,0.05);
         margin-bottom: 20px;
         min-height: 180px;
     }
-    [data-testid="stSidebar"] { background-color: #002347; }
+    [data-testid="stSidebar"] { background-color: #001e3d; }
     [data-testid="stSidebar"] * { color: white !important; }
     @media (max-width: 600px) {
         h1 { font-size: 1.8rem !important; }
@@ -33,88 +33,89 @@ with st.sidebar:
     if os.path.exists("logo.png"):
         st.image("logo.png", width=180)
     else:
-        st.title("TMVio")
+        st.title("Crearis")
 
     st.markdown("---")
     menu = st.radio(
         "Navegação",
-        ["Início", "Sobre a TMVio", "Soluções & Sistemas", "Contacto"]
+        ["Início", "Sobre a Crearis", "O Nosso Ecossistema", "Contacto"]
     )
     st.markdown("---")
-    st.caption("Uma Solução Tercio Moreira Systems")
-    st.caption("By Tércio Moreira")
+    st.caption("Crearis | Core Tech & AI")
+    st.caption("Sistemas Globais Inteligentes")
 
 # --- 4. PÁGINA: INÍCIO ---
 if menu == "Início":
-    st.markdown("<br><h1>Sua voz é o comando. O Vio é o seu gestor.</h1>",
+    st.markdown("<br><h1>Inovação Núcleo. Inteligência Sem Fronteiras.</h1>",
                 unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; font-size: 1.2rem; color: #555;'>Inovação tecnológica para finanças pessoais e gestão de Alojamento Local.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 1.2rem; color: #555;'>Desenvolvemos ecossistemas tecnológicos e agentes de Inteligência Artificial para escalar o seu mundo.</p>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown('<div class="card"><h3>🎙️ Vio Voz</h3><p>Registo de gastos imediato por voz. Inteligência que entende o mercado português.</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="card"><h3>🎙️ Vio — Gestão por Voz</h3><p>O nosso primeiro produto global. Um bot de WhatsApp com IA que transforma áudios em controlo financeiro absoluto.</p></div>', unsafe_allow_html=True)
     with col2:
-        st.markdown('<div class="card"><h3>🏠 TMHostbot</h3><p>A revolução no AL. Automação de check-ins e atendimento 24/7 para hóspedes.</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="card"><h3>🏠 Core AL (Hostbot)</h3><p>Automatização total para Alojamento Local. Atendimento multilingue 24/7 e gestão inteligente de hóspedes.</p></div>', unsafe_allow_html=True)
     with col3:
-        st.markdown('<div class="card"><h3>📊 Gestão TM</h3><p>Sistemas desenhados para máxima eficiência e conformidade legal (IRS/SEF).</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="card"><h3>📊 Custom AI Solutions</h3><p>Engenharia de software sob medida e integração de modelos LLM avançados para empresas.</p></div>', unsafe_allow_html=True)
 
-# --- 5. PÁGINA: SOBRE A TMVIO ---
-elif menu == "Sobre a TMVio":
-    st.title("Inovação com Herança")
+# --- 5. PÁGINA: SOBRE A CREARIS ---
+elif menu == "Sobre a Crearis":
+    st.title("Moldando o Futuro com Core Tech & AI")
     col_a, col_b = st.columns([1, 1.5])
     with col_b:
         st.write("""
-        ### O Significado do TM
-        A **TMVio** carrega as iniciais do seu fundador, **Tércio Moreira**. É um compromisso de excelência técnica e legado. 
+        ### Quem Somos
+        A **Crearis | Core Tech & AI** é uma software-house focada no desenvolvimento de soluções de nova geração. Combinamos engenharia de infraestrutura robusta (*Core Tech*) com camadas de Inteligência Artificial aplicada.
         
-        Nascemos em Portugal para colmatar a lacuna entre tecnologia de ponta e a vida prática. Seja gerindo as finanças da casa com o **Vio**, ou automatizando um império de Alojamento Local com o **TMHostbot**, a nossa engenharia foca no que importa: o seu tempo.
+        Nascidos com base fiscal em Portugal e projeção global, os nossos produtos são desenhados para eliminar tarefas repetitivas e devolver o ativo mais precioso que existe: o seu tempo. Do controlo financeiro pessoal à gestão automatizada de propriedades, criamos tecnologia que funciona por si.
         """)
-    st.info("Foco estratégico em Albufeira, Lisboa e Porto.")
+    st.info("🌐 Operação global gerida a partir de Portugal.")
 
-# --- 6. PÁGINA: SISTEMAS TM (VIO & HOSTBOT) ---
-elif menu == "Soluções & Sistemas":
-    st.title("Ecossistema de Inovação")
+# --- 6. PÁGINA: O NOSSO ECOSSISTEMA ---
+elif menu == "O Nosso Ecossistema":
+    st.title("Produtos Prontos a Escalar")
 
-    tab1, tab2 = st.tabs(
-        ["💎 TMHostbot (Alojamento Local)", "📱 Vio (Finanças Pessoais)"])
+    tab1, tab2 = st.tabs(["📱 Vio Finance", "💎 Core AL & Hostbot"])
 
     with tab1:
         st.markdown("""
-        ### TMHostbot: A Revolução do AL em Portugal
-        O sistema definitivo para quem gere AL e quer escala sem perder o toque humano.
+        ### Vio: O Seu Gestor Financeiro por Voz
+        A simplicidade de apenas falar com o WhatsApp e ter toda a sua vida financeira organizada por IA.
         
-        * **Automação Total:** Gestão de check-ins e chaves.
-        * **IA Multilingue:** Atendimento aos hóspedes em qualquer idioma, 24 horas por dia.
-        * **Conformidade:** Integração com SEF e faturação automática.
+        * **Processamento de Áudio Nativo:** Envia mensagens de voz e a IA regista valores, locais e categorias.
+        * **Independência de Apps:** Funciona diretamente no ecossistema global do WhatsApp.
+        * **Pronto para o Mercado:** Lançamento internacional com foco em eficiência.
         """)
-        st.info("💡 A solução para 100% de ocupação com 0% de stress.")
+        st.link_button("Visitar a Página do Vio",
+                       "https://vio-app-1.onrender.com/")
 
     with tab2:
         st.markdown("""
-        ### Vio: O Seu Gestor Financeiro por Voz
-        A simplicidade de apenas falar e ter tudo organizado.
+        ### Core AL (Hostbot): A Revolução do Alojamento Local
+        O sistema definitivo para gestores de propriedades que querem escala global com 0% de stress.
         
-        * **Registo Direto:** "Gastei 50 euros no Pingo Doce".
-        * **Categorização:** Separação automática para o e-fatura.
-        * **Exportação:** Relatórios prontos para o seu IRS.
+        * **IA Multilingue:** Atendimento automático aos hóspedes em qualquer idioma, a qualquer hora do dia.
+        * **Sincronização Fiscal:** Integração inteligente com exigências de conformidade locais.
+        * **Operação Automatizada:** Gestão inteligente de fluxos de check-in.
         """)
-        st.success("📱 Transforme a sua voz na sua maior aliada financeira.")
+        st.info("💡 Solução em fase de integração de produto — Brevemente disponível.")
 
 # --- 7. PÁGINA: CONTACTO ---
 elif menu == "Contacto":
-    st.title("Fale com a Equipa TMVio")
+    st.title("Fale com a Crearis")
     col_f1, col_f2, col_f3 = st.columns([0.2, 0.6, 0.2])
     with col_f2:
-        with st.form("contacto_tmvio"):
-            st.text_input("Seu Nome")
-            st.text_input("E-mail Profissional")
-            st.text_area("Como podemos ajudar o seu negócio ou rotina?")
-            if st.form_submit_button("Solicitar Diagnóstico"):
+        with st.form("contacto_crearis"):
+            st.text_input("Nome Corporativo / Individual")
+            st.text_input("E-mail de Contacto Global")
+            st.text_area(
+                "Como é que as nossas soluções de IA podem potenciar a sua rotina ou negócio?")
+            if st.form_submit_button("Enviar Mensagem"):
                 st.balloons()
                 st.success(
-                    "Mensagem enviada! Tércio Moreira entrará em contacto brevemente.")
+                    "Mensagem enviada com sucesso! A equipa da Crearis entrará em contacto brevemente.")
 
 # --- 8. RODAPÉ ---
 st.divider()
 st.caption(
-    "© 2026 TMVio | Uma Solução Tercio Moreira Systems | tm-vio.com | Portugal")
+    "© 2026 Crearis | Core Tech & AI | Suporte Global | Sede Fiscal: Portugal")
