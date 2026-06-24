@@ -30,10 +30,9 @@ st.markdown("""
 
 # --- 3. MENU LATERAL ---
 with st.sidebar:
-    if os.path.exists("logo.png"):
-        st.image("logo.png", width=180)
-    else:
-        st.title("Crearis")
+    # Aponta diretamente para a imagem real que está no teu repositório do GitHub
+    logo_url = "https://github.com/terciomoreira/projeto_tmsystems/blob/main/logo.png.jpeg?raw=true"
+    st.image(logo_url, width=180)
 
     st.markdown("---")
     menu = st.radio(
@@ -43,7 +42,6 @@ with st.sidebar:
     st.markdown("---")
     st.caption("Crearis | Core Tech & AI")
     st.caption("Sistemas Globais Inteligentes")
-
 # --- 4. PÁGINA: INÍCIO ---
 if menu == "Início":
     st.markdown("<br><h1>Inovação Núcleo. Inteligência Sem Fronteiras.</h1>",
